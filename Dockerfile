@@ -27,6 +27,11 @@ RUN npm cache clean
 EXPOSE 443
 EXPOSE 80
 
+# NGINX config
+RUN rm /etc/nginx/nginx.conf /etc/nginx/mime.types
+ADD ./config/nginx.conf /etc/nginx/nginx.conf
+ADD ./config/mime.types /etc/nginx/mime.types
+
 # Start nginx
 CMD ["/usr/sbin/nginx", "-g", "daemon off;"]
 
