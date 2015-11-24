@@ -8,7 +8,7 @@ RUN apt-get update
 RUN apt-get install -y curl git build-essential
 
 # Install Node.js
-RUN curl -sL https://deb.nodesource.com/setup_0.12 | bash -
+RUN curl -sL https://deb.nodesource.com/setup_4.x | sudo -E bash -
 RUN apt-get install -y nodejs
 
 # Cleanup
@@ -19,6 +19,7 @@ RUN npm install -g npm
 
 # Install global build dependency
 RUN npm install -g gulp
+RUN npm install -g napa
 
 # Clean NPM cache
 RUN npm cache clean
